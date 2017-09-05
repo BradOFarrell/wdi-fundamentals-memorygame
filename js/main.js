@@ -42,12 +42,17 @@ function flipCard(){
 
 function createBoard(){
  for (var i = cards.length - 1; i >= 0; i--) {
- 	var cardElement = document.createElement('img');
+	 var cardElement = document.createElement('img');
+	 var lineBreak = document.createElement('br');
  	cardElement.setAttribute('src','images/back.png');
  	cardElement.setAttribute('id',i);
- 	cardElement.addEventListener('click',flipCard);
- 	document.getElementById("game-board").appendChild(cardElement);
- }
+	cardElement.addEventListener('click',flipCard);
+	cardElement.appendChild(document.createElement('br'));
+	document.getElementById("game-board").appendChild(cardElement);
+	if(i == 2){
+		document.getElementById("game-board").appendChild(lineBreak);
+	}
+}
 }
 
 createBoard();
